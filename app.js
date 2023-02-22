@@ -1,34 +1,9 @@
 "use Strict";
 // invoking this function will randomly return 3 outputs:  rock, paper or scissors
-const getComputerChoice = function () {
-  const randomNumber = Math.trunc(Math.random() * 3 + 1);
-
-  if (randomNumber === 1) {
-    return `Rock`;
-  } else if (randomNumber === 2) {
-    return `Paper`;
-  } else {
-    return `Scissors`;
-  }
-};
-
-let playerPick = prompt("Rock, Paper or Scissors?");
-const playerChoice = function () {
-  // Using prompt function to allow user to input his/her choice and store the value in a variable
-
-  // These 2 variables below allow user input to be case insensitive by forcing a convention which is executed regardless of how the user types the required answer.
-  const firstLetterOfName = playerPick.slice(0, 1).toUpperCase();
-  const restOfLetterName = playerPick.slice(1, playerPick.length).toLowerCase();
-  playerPick = firstLetterOfName + restOfLetterName;
-  return playerPick;
-};
 
 // Variables for player's Score and computer's Score.
 let playerScore = 0;
 let computerScore = 0;
-
-// Variable that stores the output of the computer's choice function
-const computerChoice = getComputerChoice();
 
 // This function takes a single round of the game and returns a string the declares the winner of the round.
 const playRound = function (playerSelection, computerSelection) {
@@ -52,13 +27,33 @@ const playRound = function (playerSelection, computerSelection) {
 // The for loop iterates from round 1 through round 5
 // For each iteration, It determines the winner and adds a score to winner
 for (let i = 1; i <= 5; i++) {
+  const getComputerChoice = function () {
+    const randomNumber = Math.trunc(Math.random() * 3 + 1);
+
+    if (randomNumber === 1) {
+      return `Rock`;
+    } else if (randomNumber === 2) {
+      return `Paper`;
+    } else {
+      return `Scissors`;
+    }
+  };
+
+  // Variable that stores the output of the computer's choice function
+  const computerChoice = getComputerChoice();
+
+  // Using prompt function to allow user to input his/her choice and store the value in a variable
+  let playerPick = prompt("Rock, Paper or Scissors?");
+  // These 2 variables below allow user input to be case insensitive by forcing a convention which is executed regardless of how the user types the required answer.
+  const firstLetterOfName = playerPick.slice(0, 1).toUpperCase();
+  const restOfLetterName = playerPick.slice(1, playerPick.length).toLowerCase();
+  playerPick = firstLetterOfName + restOfLetterName;
+
   // invoking this function adds a score to winner based on each round
   const game = function (round) {
-    if (playRound(playerChoice(), computerChoice).includes("You win 🏆")) {
+    if (playRound(playerPick, computerChoice).includes("You win 🏆")) {
       playerScore += 1;
-    } else if (
-      playRound(playerChoice(), computerChoice).includes("You lose😞")
-    ) {
+    } else if (playRound(playerPick, computerChoice).includes("You lose😞")) {
       computerScore += 1;
     } else {
       // Adds 0 to each score incase of a draw
@@ -67,9 +62,9 @@ for (let i = 1; i <= 5; i++) {
     }
 
     console.log(
-      `You chose ${playerChoice()} and the computer chose ${computerChoice}`
+      `You chose ${playerPick} and the computer chose ${computerChoice}`
     );
-    console.log(playRound(playerChoice(), computerChoice));
+    console.log(playRound(playerPick, computerChoice));
     console.log(playerScore, computerScore);
   };
   game(i);
