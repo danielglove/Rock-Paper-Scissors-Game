@@ -24,12 +24,12 @@ let playing = true;
 const selectRock = function () {
   rockComputerBtn.classList.add("text-white");
   rockComputerBtn.classList.add("bg-sky-900");
-  rockComputerBtn.classList.remove("bg-teal-800");
+  rockComputerBtn.classList.remove("bg-sky-800");
   paperComputerBtn.classList.remove("bg-sky-900");
   paperComputerBtn.classList.remove("text-white");
-  paperComputerBtn.classList.add("bg-teal-800");
+  paperComputerBtn.classList.add("bg-sky-800");
   scissorsComputerBtn.classList.remove("bg-sky-900");
-  scissorsComputerBtn.classList.add("bg-teal-800");
+  scissorsComputerBtn.classList.add("bg-sky-800");
   scissorsComputerBtn.classList.remove("text-white");
 };
 
@@ -37,12 +37,12 @@ const selectRock = function () {
 const selectPaper = function () {
   rockComputerBtn.classList.remove("text-white");
   rockComputerBtn.classList.remove("bg-sky-900");
-  rockComputerBtn.classList.add("bg-teal-800");
+  rockComputerBtn.classList.add("bg-sky-800");
   paperComputerBtn.classList.add("bg-sky-900");
   paperComputerBtn.classList.add("text-white");
-  paperComputerBtn.classList.remove("bg-teal-800");
+  paperComputerBtn.classList.remove("bg-sky-800");
   scissorsComputerBtn.classList.remove("bg-sky-900");
-  scissorsComputerBtn.classList.add("bg-teal-800");
+  scissorsComputerBtn.classList.add("bg-sky-800");
   scissorsComputerBtn.classList.remove("text-white");
 };
 
@@ -50,14 +50,14 @@ const selectPaper = function () {
 const selectScissors = function () {
   scissorsComputerBtn.classList.add("text-white");
   scissorsComputerBtn.classList.add("bg-sky-900");
-  scissorsComputerBtn.classList.remove("bg-teal-800");
+  scissorsComputerBtn.classList.remove("bg-sky-800");
   scissorsComputerBtn.classList.add("text-white");
   rockComputerBtn.classList.remove("bg-sky-900");
-  rockComputerBtn.classList.add("bg-teal-800");
+  rockComputerBtn.classList.add("bg-sky-800");
   rockComputerBtn.classList.remove("text-white");
   paperComputerBtn.classList.remove("text-white");
   paperComputerBtn.classList.remove("bg-sky-900");
-  paperComputerBtn.classList.add("bg-teal-800");
+  paperComputerBtn.classList.add("bg-sky-800");
 };
 // invoking this function will randomly return any of the 3 outputs:  rock, paper or scissors
 const getComputerChoice = function () {
@@ -117,6 +117,9 @@ const resetGame = function () {
   computerCurrentScore.textContent = computerScore;
   computerRpsImage.src = "./images/default.jpeg";
   playerRpsImage.src = "./images/default.jpeg";
+  rockComputerBtn.classList.remove("bg-sky-900");
+  paperComputerBtn.classList.remove("bg-sky-900");
+  scissorsComputerBtn.classList.remove("bg-sky-900");
 };
 resetBtn.addEventListener("click", resetGame);
 

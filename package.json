@@ -4,7 +4,8 @@
   "description": "",
   "main": "tailwind.config.js",
   "scripts": {
-    "build": "tailwindcss build -i ./src/input.css -o ./build/styles.css --watch"
+    "build": "postcss ./src/input.css -o ./build/styles.css --watch",
+    "prod": " NODE_ENV=production postcss ./src/input.css -o ./build/styles.css --watch"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,9 @@
   "homepage": "https://github.com/danielglove/Rock-Paper-Scissors-Game#readme",
   "devDependencies": {
     "tailwindcss": "^3.2.7"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss-cli": "^10.1.0"
   }
 }
