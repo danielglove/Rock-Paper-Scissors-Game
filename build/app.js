@@ -23,6 +23,8 @@ let playing = true;
 // Invoking this function will change the background color of Rock btn to green and revert the other buttons to their initial bg-color
 const selectRock = function () {
   rockComputerBtn.classList.add("text-white");
+  rockComputerBtn.classList.add("scale-100");
+  rockComputerBtn.classList.add("transform");
   rockComputerBtn.classList.add("bg-sky-900");
   rockComputerBtn.classList.remove("bg-sky-800");
   paperComputerBtn.classList.remove("bg-sky-900");
