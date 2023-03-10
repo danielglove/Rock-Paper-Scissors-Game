@@ -210,9 +210,6 @@ const game = function () {
     computerScore += 0;
   }
 
-  console.log(
-    `You chose ${playerPick} and the computer chose ${computerChoice}`
-  );
   console.log(playRound(playerPick, computerChoice));
   playerCurrentScore.innerText = `${playerScore}`;
   playerCurrentScore.classList.add("text-lime-800");
